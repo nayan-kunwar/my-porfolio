@@ -1,14 +1,3 @@
----
-description: Introduction to scalable system design
-draft: false
-featured: true
-pubDatetime: 2026-02-15
-tags:
-- system-design
-- backend
-title: System Design Basics
----
-
 # Nayan Kunwar --- Backend Engineering Blog 🚀
 
 ![Blog OG Image](public/astropaper-og.jpg)
@@ -57,90 +46,6 @@ rather than theoretical tutorials.
 
 ------------------------------------------------------------------------
 
-## 🛠 Tech Stack
-
-This blog is built using the following technologies:
-
--   Framework: Astro
--   Language: TypeScript
--   Styling: TailwindCSS
--   Content: Markdown
--   Search: Pagefind
--   Deployment: Vercel / Cloudflare Pages / Netlify
--   Version Control: Git & GitHub
-
-------------------------------------------------------------------------
-
-## 📂 Project Structure
-
-/ ├── public/ │ ├── favicon.svg │ └── astropaper-og.jpg │ ├── src/ │ ├──
-assets/ │ ├── components/ │ ├── layouts/ │ ├── pages/ │ ├── data/ │ │
-└── blog/ │ │ └── your-posts.md │ ├── styles/ │ ├── utils/ │ ├──
-config.ts │ ├── constants.ts │ └── content.config.ts │ ├──
-astro.config.ts ├── package.json └── README.md
-
-------------------------------------------------------------------------
-
-## 📝 Writing New Blog Posts
-
-To create a new blog post, add a markdown file inside:
-
-src/data/blog/
-
-Example:
-
-src/data/blog/system-design-basics.md
-
-Example frontmatter:
-
-Your blog content here...
-
-------------------------------------------------------------------------
-
-## 🚀 Running Locally
-
-Install dependencies:
-
-pnpm install
-
-Start development server:
-
-pnpm run dev
-
-Open in browser:
-
-http://localhost:4321
-
-------------------------------------------------------------------------
-
-## 🏗 Build for Production
-
-Build the project:
-
-pnpm run build
-
-Preview production build:
-
-pnpm run preview
-
-------------------------------------------------------------------------
-
-## 🌐 Deployment
-
-You can deploy this blog easily on:
-
--   Vercel (Recommended)
--   Cloudflare Pages
--   Netlify
-
-Recommended workflow:
-
--   Push code to GitHub
--   Connect repository to Vercel
--   Deploy automatically
-
-------------------------------------------------------------------------
-
 ## 🎯 Blog Topics Covered
 
 This blog focuses on:
@@ -165,19 +70,3 @@ LinkedIn: https://linkedin.com/in/YOUR_LINKEDIN_USERNAME
 
 Website: https://your-domain.com
 
-------------------------------------------------------------------------
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
-Copyright © 2026 Nayan Kunwar
-
-------------------------------------------------------------------------
-
-## ⭐ Acknowledgement
-
-This blog is built using the Astro framework and customized from the
-AstroPaper theme.
-
-Customized and maintained by Nayan Kunwar.
