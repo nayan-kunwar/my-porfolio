@@ -3,35 +3,37 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, accessible and SEO-friendly blog theme built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
+<img
+  src="/my-photo.png"
+  alt="Nayan Kunwar"
+  class="mx-auto mb-6 w-40 rounded-full border border-border sm:w-48"
+/>
 
-![Astro Paper](public/astropaper-og.jpg)
+Hi, I'm **Nayan Kunwar**, a Backend Engineer based in Dehradun, India. I have 2+ years of experience building scalable, production-grade backend systems for real-world products.
 
-AstroPaper provides a solid foundation for blogs, or even portfolios\_ with full markdown support, built-in dark mode, and a clean layout that works out-of-the-box.
+I specialize in designing and implementing REST APIs, event-driven architectures, and payment integrations. My day-to-day work involves Node.js, TypeScript, PostgreSQL, Kafka, Redis, and Docker — with a focus on reliability, performance, and clean system design.
 
-The blog posts in this theme also serve as guides, docs or example articles\_ making AstroPaper a flexible starting point for your next content-driven site.
+## What I Do
 
-## Features
+I build backend systems that power multi-sided platforms, booking flows, and real-time applications. Recent work includes:
 
-AstroPaper comes with a set of useful features that make content publishing easy and effective:
+- Event-driven order processing with Apache Kafka and background workers
+- Payment gateway integrations (Stripe Connect, Razorpay)
+- Scalable APIs with PostgreSQL, Prisma, and Redis caching
+- Real-time features using Socket.io
 
-- SEO-friendly
-- Fast performance
-- Light & dark mode
-- Highly customizable
-- Organizable blog posts
-- Responsive & accessible
-- Static search with [PageFind](https://pagefind.app/)
-- Automatic social image generation
+## Background
 
-and so much more.
+I'm currently working as a **Backend Developer at Nexzem Technologies**, where I build marketplace and payment systems using a modern backend stack. Previously, I worked at Pearl Organisation and completed an internship at CodeJi Info Tech, where I built REST APIs and a real-time chat application.
 
-## Show your support
+## What I'm Looking For
 
-If you like [AstroPaper](https://github.com/satnaing/astro-paper), consider giving it a star ⭐️.
+I'm open to backend engineering opportunities — roles involving system design, distributed systems, microservices, and production API development. Remote or on-site.
 
-Found a bug 🐛 or have an improvement ✨ in mind? Feel free to open an [issue](https://github.com/satnaing/astro-paper/issues), submit a [pull request](https://github.com/satnaing/astro-paper/pulls) or start a [discussion](https://github.com/satnaing/astro-paper/discussions).
+## Let's Connect
 
-If you find this theme helpful, you can also [sponsor me on GitHub](https://github.com/sponsors/satnaing) or [buy me a coffee](https://buymeacoffee.com/satnaing) to show your support — every penny counts.
+- **GitHub:** [github.com/nayan-kunwar](https://github.com/nayan-kunwar)
+- **LinkedIn:** [linkedin.com/in/nayan-kunwar-a1732a202](https://www.linkedin.com/in/nayan-kunwar-a1732a202/)
+- **Email:** [nayankunwar678@gmail.com](mailto:nayankunwar678@gmail.com)
 
-Kyay zuu! 🙏🏼
+Explore my [projects](/projects/) and [experience](/experience/) to see what I've built.
