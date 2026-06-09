@@ -1,0 +1,64 @@
+---
+import type { Experience } from "@/data/experience";
+import IconCalendar from "@/assets/icons/IconCalendar.svg";
+
+type Props = Experience;
+
+const {
+  role,
+  company,
+  location,
+  startDate,
+  endDate,
+  highlights,
+  tech,
+  current,
+} = Astro.props;
+---
+
+<li
+  class:list={[
+    "my-8 rounded-lg border border-border p-6",
+    { "border-accent/40": current },
+  ]}
+>
+  <div class="flex flex-wrap items-start justify-between gap-2">
+    <h2 class="text-xl font-semibold text-accent sm:text-2xl">{role}</h2>
+    {
+      current && (
+        <span class="rounded border border-accent/50 px-2 py-0.5 text-xs font-medium text-accent">
+          Current
+        </span>
+      )
+    }
+  </div>
+
+  <p class="mt-2 font-medium">
+    {company} · {location}
+  </p>
+
+  <p class="mt-1 flex items-center gap-1.5 text-sm opacity-80">
+    <IconCalendar class="size-4" />
+    {startDate} – {endDate}
+  </p>
+
+  <ul class="mt-4 list-disc space-y-1 ps-5">
+    {highlights.map(highlight => <li>{highlight}</li>)}
+  </ul>
+
+  {
+    tech && tech.length > 0 && (
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          tech.map(item => (
+            <li>
+              <span class="rounded border border-border px-2 py-0.5 text-sm">
+                {item}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    )
+  }
+</li>

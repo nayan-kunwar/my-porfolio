@@ -1,0 +1,16 @@
+export const TECH_STACK = [
+  "Node.js",
+  "TypeScript",
+  "PostgreSQL",
+  "MongoDB",
+  "Redis",
+  "Apache Kafka",
+  "BullMQ",
+  "Prisma",
+  "Docker",
+  "AWS",
+  "Stripe",
+  "Razorpay",
+  "Socket.io",
+  "Nginx",
+] as const;

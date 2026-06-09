@@ -2,14 +2,17 @@ export const SITE = {
   website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
   author: "Nayan Kunwar",
   profile: "https://www.linkedin.com/in/nayan-kunwar-a1732a202/",
-  desc: "Backend Engineer writing about distributed systems, Node.js, Kafka, microservices, and system design.",
+  desc: "Backend Engineer building scalable systems with Node.js, Kafka, PostgreSQL, and microservices.",
   title: "Nayan Kunwar",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerIndex: 4,
   postPerPage: 4,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
+  showPosts: false,
+  showTags: false,
   showArchives: true,
+  openToWork: true,
   showBackButton: true, // show back button in post detail
   editPost: {
     enabled: true,

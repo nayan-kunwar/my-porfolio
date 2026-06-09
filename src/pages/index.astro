@@ -5,87 +5,234 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Socials from "@/components/Socials.astro";
 import LinkButton from "@/components/LinkButton.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
 import Card from "@/components/Card.astro";
 import getSortedPosts from "@/utils/getSortedPosts";
 import IconRss from "@/assets/icons/IconRss.svg";
 import IconArrowRight from "@/assets/icons/IconArrowRight.svg";
+import IconCalendar from "@/assets/icons/IconCalendar.svg";
+import IconMail from "@/assets/icons/IconMail.svg";
+import IconLinkedin from "@/assets/icons/IconLinkedin.svg";
 import { SITE } from "@/config";
 import { SOCIALS } from "@/constants";
+import { PROJECTS } from "@/data/projects";
+import { EXPERIENCE } from "@/data/experience";
+import { TECH_STACK } from "@/data/techStack";
 
-const posts = await getCollection("blog");
+const posts = SITE.showPosts ? await getCollection("blog") : [];
 
-const sortedPosts = getSortedPosts(posts);
+const sortedPosts = SITE.showPosts ? getSortedPosts(posts) : [];
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+const featuredProject = PROJECTS.find(({ featured }) => featured);
+const currentRole = EXPERIENCE.find(({ current }) => current);
+const linkedIn = SOCIALS.find(({ name }) => name === "LinkedIn");
+const email = SOCIALS.find(({ name }) => name === "Mail");
 ---
 
 <Layout>
   <Header />
   <main id="main-content" data-layout="index" class="app-layout">
     <section id="hero" class:list={["pt-8 pb-6", "border-b border-border"]}>
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
+      <h1 class="my-4 inline-block text-4xl font-bold sm:my-6 sm:text-5xl">
         Hi, I'm Nayan Kunwar
       </h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="inline-block"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
+      <p class="mb-4 text-lg opacity-80">
+        Backend Engineer · Node.js · Distributed Systems
+      </p>
+      {
+        SITE.showPosts && (
+          <a
+            target="_blank"
+            href="/rss.xml"
+            class="inline-block"
+            aria-label="rss feed"
+            title="RSS Feed"
+          >
+            <IconRss
+              width={20}
+              height={20}
+              class="scale-125 stroke-accent stroke-3 rtl:-rotate-90"
+            />
+            <span class="sr-only">RSS Feed</span>
+          </a>
+        )
+      }
 
       <p>
-        Backend Developer specializing in building scalable, distributed systems
-        using Node.js, PostgreSQL, Kafka, Docker, and microservices architecture.
+        Backend Engineer with 2+ years of experience building scalable,
+        production-grade systems. I work with Node.js, TypeScript, PostgreSQL,
+        Kafka, and Docker — designing REST APIs, event-driven architectures, and
+        payment integrations for real-world products.
       </p>
-      <p class="mt-2">
-        I write about:
-      </p>
+      <p class="mt-4 font-medium">Core expertise:</p>
 
-      <ul class="mt-2 list-disc list-inside">
-        <li>System Design</li>
-        <li>Backend Architecture</li>
-        <li>Node.js & PostgreSQL</li>
-        <li>Microservices & Kafka</li>
-        <li>Distributed Systems</li>
-        <li>Real-world production engineering</li>
+      <ul class="mt-2 list-inside list-disc">
+        <li>System Design & Backend Architecture</li>
+        <li>Node.js, TypeScript & PostgreSQL</li>
+        <li>Event-Driven Systems (Kafka, BullMQ, Redis)</li>
+        <li>Payment Gateway Integrations (Stripe, Razorpay)</li>
+        <li>Microservices & Distributed Systems</li>
       </ul>
-      
-      <p class="mt-2">
-        Read the blog posts or check
-        <LinkButton
-          class="underline decoration-dashed underline-offset-4 hover:text-accent"
-          href="https://github.com/satnaing/astro-paper#readme" 
-        >
-          README
-        </LinkButton> for more info.
-      </p>
+
+      <div class="mt-6 flex flex-wrap gap-4">
+        <LinkButton href="/projects/">
+          View Projects
+          <IconArrowRight class="inline-block rtl:-rotate-180" />
+        </LinkButton>
+        <LinkButton href="/experience/">
+          View Experience
+          <IconArrowRight class="inline-block rtl:-rotate-180" />
+        </LinkButton>
+      </div>
+
+      {
+        SITE.showPosts && (
+          <p class="mt-2">
+            Read the blog posts or check
+            <LinkButton
+              class="underline decoration-dashed underline-offset-4 hover:text-accent"
+              href="https://github.com/satnaing/astro-paper#readme"
+            >
+              README
+            </LinkButton>{" "}
+            for more info.
+          </p>
+        )
+      }
       {
         // only display if at least one social link is enabled
         SOCIALS.length > 0 && (
           <div class="mt-4 flex max-sm:flex-col sm:items-center">
-            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">Connect with me:</div>
+            <div class="me-2 mb-1 whitespace-nowrap sm:mb-0">
+              Connect with me:
+            </div>
             <Socials />
           </div>
         )
       }
-      <!-- <div class="mt-4">
-        <LinkButton href="/posts/">
-          Read Blog
-          <IconArrowRight class="inline-block" />
-        </LinkButton>
-      </div> -->
     </section>
+
+    {
+      featuredProject && (
+        <section
+          id="featured-project"
+          class="border-b border-border pt-12 pb-6"
+        >
+          <h2 class="text-2xl font-semibold tracking-wide">Featured Project</h2>
+          <ul class="list-none ps-0">
+            <ProjectCard {...featuredProject} />
+          </ul>
+          <div class="text-center">
+            <LinkButton href="/projects/">
+              View All Projects
+              <IconArrowRight class="inline-block rtl:-rotate-180" />
+            </LinkButton>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      currentRole && (
+        <section id="current-role" class="border-b border-border pt-12 pb-6">
+          <h2 class="text-2xl font-semibold tracking-wide">Currently</h2>
+          <div class="mt-4 rounded-lg border border-accent/40 p-6">
+            <h3 class="text-xl font-semibold text-accent">
+              {currentRole.role}
+            </h3>
+            <p class="mt-2 font-medium">
+              {currentRole.company} · {currentRole.location}
+            </p>
+            <p class="mt-1 flex items-center gap-1.5 text-sm opacity-80">
+              <IconCalendar class="size-4" />
+              {currentRole.startDate} – {currentRole.endDate}
+            </p>
+            <p class="mt-4">{currentRole.highlights[0]}</p>
+            <div class="mt-4">
+              <LinkButton
+                href="/experience/"
+                class="underline decoration-dashed underline-offset-4"
+              >
+                View Experience
+                <IconArrowRight class="inline-block rtl:-rotate-180" />
+              </LinkButton>
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <section id="tech-stack" class="border-b border-border pt-12 pb-6">
+      <h2 class="text-2xl font-semibold tracking-wide">Tech I Work With</h2>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          TECH_STACK.map(item => (
+            <li>
+              <span class="rounded border border-border px-2 py-0.5 text-sm">
+                {item}
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    {
+      SITE.openToWork && (
+        <section id="open-to-work" class="border-b border-border pt-12 pb-6">
+          <div class="rounded-lg border border-accent/50 bg-accent/5 p-6">
+            <h2 class="text-2xl font-semibold tracking-wide text-accent">
+              Open to Work
+            </h2>
+            <p class="mt-3">
+              Currently open to backend engineering opportunities — building
+              scalable APIs, event-driven systems, and production-grade
+              infrastructure. Remote or on-site.
+            </p>
+          </div>
+        </section>
+      )
+    }
+
+    <section id="contact" class="pt-12 pb-12">
+      <h2 class="text-2xl font-semibold tracking-wide">Let's Connect</h2>
+      <p class="mt-3">
+        Interested in working together or discussing backend engineering? Reach
+        out — I'd love to hear from you.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-4">
+        {
+          linkedIn && (
+            <LinkButton
+              href={linkedIn.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline decoration-dashed underline-offset-4"
+            >
+              <IconLinkedin class="inline-block size-5" />
+              LinkedIn
+            </LinkButton>
+          )
+        }
+        {
+          email && (
+            <LinkButton
+              href={email.href}
+              class="underline decoration-dashed underline-offset-4"
+            >
+              <IconMail class="inline-block size-5" />
+              Send Email
+            </LinkButton>
+          )
+        }
+      </div>
+    </section>
+
     <!-- FEATURED POSTS -->
     {
-      featuredPosts.length > 0 && (
+      SITE.showPosts && featuredPosts.length > 0 && (
         <section
           id="featured"
           class:list={[
@@ -104,7 +251,7 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
     }
     <!-- RECENT POSTS -->
     {
-      recentPosts.length > 0 && (
+      SITE.showPosts && recentPosts.length > 0 && (
         <section id="recent-posts" class="pt-12 pb-6">
           <h2 class="text-2xl font-semibold tracking-wide">Recent Posts</h2>
           <ul>
@@ -117,13 +264,16 @@ const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
       )
     }
 
-    <!-- VIEW ALL POSTS -->
-    <div class="my-8 text-center">
-      <LinkButton href="/posts/">
-        View All Posts
-        <IconArrowRight class="inline-block rtl:-rotate-180" />
-      </LinkButton>
-    </div>
+    {
+      SITE.showPosts && (
+        <div class="my-8 text-center">
+          <LinkButton href="/posts/">
+            View All Posts
+            <IconArrowRight class="inline-block rtl:-rotate-180" />
+          </LinkButton>
+        </div>
+      )
+    }
   </main>
   <Footer />
 </Layout>

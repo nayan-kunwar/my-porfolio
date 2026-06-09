@@ -1,0 +1,22 @@
+---
+import Main from "@/layouts/Main.astro";
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import ExperienceCard from "@/components/ExperienceCard.astro";
+import { EXPERIENCE } from "@/data/experience";
+import { SITE } from "@/config";
+---
+
+<Layout title={`Experience | ${SITE.title}`}>
+  <Header />
+  <Main
+    pageTitle="Experience"
+    pageDesc="My professional journey building scalable backend systems and production-grade APIs."
+  >
+    <ul class="list-none ps-0">
+      {EXPERIENCE.map(job => <ExperienceCard {...job} />)}
+    </ul>
+  </Main>
+  <Footer />
+</Layout>

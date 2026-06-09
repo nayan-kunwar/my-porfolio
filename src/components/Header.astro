@@ -71,11 +71,18 @@ const isActive = (path: string) => {
           "sm:mt-0 sm:flex sm:w-auto sm:gap-x-5 sm:gap-y-0",
         ]}
       >
-        <li class="col-span-2">
-          <a href="/posts" class:list={{ "active-nav": isActive("/posts") }}>
-            Posts
-          </a>
-        </li>
+        {
+          SITE.showPosts && (
+            <li class="col-span-2">
+              <a
+                href="/posts"
+                class:list={{ "active-nav": isActive("/posts") }}
+              >
+                Posts
+              </a>
+            </li>
+          )
+        }
         <li class="col-span-2">
           <a
             href="/projects"
@@ -85,10 +92,25 @@ const isActive = (path: string) => {
           </a>
         </li>
         <li class="col-span-2">
-          <a href="/tags" class:list={{ "active-nav": isActive("/tags") }}>
-            Tags
+          <a
+            href="/experience"
+            class:list={{ "active-nav": isActive("/experience") }}
+          >
+            Experience
           </a>
         </li>
+        {
+          SITE.showTags && (
+            <li class="col-span-2">
+              <a
+                href="/tags"
+                class:list={{ "active-nav": isActive("/tags") }}
+              >
+                Tags
+              </a>
+            </li>
+          )
+        }
         <li class="col-span-2">
           <a href="/about" class:list={{ "active-nav": isActive("/about") }}>
             About
