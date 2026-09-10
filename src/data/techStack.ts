@@ -13,4 +13,9 @@ export const TECH_STACK = [
   "Razorpay",
   "Socket.io",
   "Nginx",
+  "LangChain",
+  "LangGraph",
+  "Vector Databases",
+  "RAG (Retrieval-Augmented Generation)",
+  "LLM API Integration",
 ] as const;

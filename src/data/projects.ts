@@ -34,6 +34,30 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
+    title: "Smriti",
+    description:
+      "Durable, queryable long-term memory backend for AI agents — stores working, episodic, and semantic memories and serves low-latency RAG context.",
+    highlights: [
+      "Three memory tiers — working (Redis), episodic (Postgres), semantic (Postgres + pgvector)",
+      "Synchronous RAG retrieval via POST /memories/context with cache → embed → vector search → rank pipeline",
+      "Async enrichment via Kafka workers for embeddings, importance scoring, summarization, consolidation, and profiling",
+      "Production-oriented Nx monorepo with Kysely, OpenTelemetry traces, and Prometheus + Grafana metrics",
+    ],
+    tech: [
+      "TypeScript",
+      "NestJS",
+      "Fastify",
+      "PostgreSQL",
+      "pgvector",
+      "Redis",
+      "Apache Kafka",
+      "Kysely",
+      "OpenTelemetry",
+      "Prometheus",
+    ],
+    featured: true,
+  },
+  {
     title: "Travel Monk",
     description:
       "Travel booking platform backend with RESTful APIs for user authentication, bookings, and payment processing.",

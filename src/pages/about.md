@@ -22,13 +22,15 @@ I build backend systems that power multi-sided platforms, booking flows, and rea
 - Scalable APIs with PostgreSQL, Prisma, and Redis caching
 - Real-time features using Socket.io
 
+<!--
 ## Background
 
 I'm currently working as a **Backend Developer at Nexzem Technologies**, where I build marketplace and payment systems using a modern backend stack. Previously, I worked at Pearl Organisation and completed an internship at CodeJi Info Tech, where I built REST APIs and a real-time chat application.
+-->
 
 ## What I'm Looking For
 
-I'm open to backend engineering opportunities — roles involving system design, distributed systems, microservices, and production API development. Remote or on-site.
+I'm open to backend engineering opportunities — especially roles involving system design, distributed systems, microservices, and production API development, with a growing focus on AI-powered backends: RAG pipelines, vector databases, LLM API integration, and Agentic AI systems using LangChain and LangGraph (tool calling, workflow orchestration). Remote or on-site.
 
 ## Let's Connect
 

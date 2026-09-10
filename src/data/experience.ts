@@ -15,8 +15,8 @@ export const EXPERIENCE: Experience[] = [
     company: "Nexzem Technologies",
     location: "Dehradun, India",
     startDate: "Dec 2025",
-    endDate: "Present",
-    current: true,
+    endDate: "Jun 2026",
+    current: false,
     highlights: [
       "Building scalable backend services using Node.js, TypeScript, PostgreSQL, and Prisma",
       "Implemented event-driven workflows with Apache Kafka and background workers",
